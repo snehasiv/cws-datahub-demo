@@ -63,15 +63,16 @@ Azure Function app for managing NGO Centre for World Solidarity (CWS) DataHub ap
     3. Writing a new API: ``func new --template "Http Trigger" --name <api name>``
     4. Test locally: 
         ``` python
-        create environment variable in terminal for storage account account key. Name: 'STORAGE_ACCOUNT_KEY'
-        Then run: "func new"
+        create environment variable in terminal for storage account name (Name: 'STORAGE_ACCCOUNT_NAME') and account key (Name: 'STORAGE_ACCOUNT_KEY')
+        Then run: "func start"
         ```
     5. Deploy changes to Azure account: 
       ```
       git push origin main
       func azure functionapp publish
       ```
-       
+7. Create a container for older records and reports, documentation [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal)
+
     
 
 
