@@ -1,8 +1,11 @@
 import logging
 import json
 import traceback
+from jsondiff import diff
 import azure.functions as func
 from tableStorage import helper_statereports
+from tableStorage import helper_statereportlogs
+
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
@@ -32,7 +35,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 status_code=400
             )  
         try:  
-            helper_statereports.update_report(req_body['partitionKey'], req_body['rowKey'],req_body)
+            report = helper_statereports.get_record(req_body['partitionKey'], req_body['rowKey'])
+            helper_statereports.update_record(req_body['partitionKey'], req_body['rowKey'],req_body)
+            #add trace event
+            changed = diff(req_body.get('data'), report.get('Data'))
+
+            helper_statereportlogs.submit_record(req_body, str(changed))
         except:
             traceback.print_exc()
             return func.HttpResponse(

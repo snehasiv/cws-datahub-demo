@@ -1,5 +1,5 @@
 import logging
-from tableStorage import helper_statereports
+from tableStorage import helper_localrecords
 import json
 import azure.functions as func
 
@@ -15,7 +15,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 "Bad Request. Please provide all required filters.",
                 status_code=400)   
 
-    report = helper_statereports.get_record(partitionKey, rowKey)
+    report = helper_localrecords.get_record(partitionKey, rowKey)
     report_json = json.dumps(report, indent=4, sort_keys=True, default=str)
     return func.HttpResponse( report_json,status_code=200, 
         mimetype="application/json")   
+    

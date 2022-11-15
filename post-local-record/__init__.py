@@ -2,8 +2,7 @@ import logging
 import json
 import traceback
 import azure.functions as func
-from tableStorage import helper_statereports
-from tableStorage import helper_statereportlogs
+from tableStorage import helper_localrecords
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -18,16 +17,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
     else:
         #Validating body
-        req_fields = ('state', 'projectId', 'reportName', 'createdBy', 'reportWindowStartDate', 'reportWindowEndDate', 'reportSubmissionDate','reportData')
+        req_fields = ('state', 'projectId', 'activityName', 'pincode', 'recordId', 'submittedBy', 'submissionDate','data')
         if not all(fields in req_body for fields in req_fields):
             return func.HttpResponse(
                 "Bad Request.",
                 status_code=400
             )          
         try:  
-            helper_statereports.submit_record(req_body)
-            #add trace event
-            helper_statereportslog.submit_record(req_body, req_body.get('reportData'))
+            helper_localrecords.submit_record(req_body)
         except:
             traceback.print_exc()
             return func.HttpResponse(

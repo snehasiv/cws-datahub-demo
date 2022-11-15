@@ -30,7 +30,7 @@ Azure Function app for managing NGO Centre for World Solidarity (CWS) DataHub ap
 
 
       ```python
-      'PartitionKey': 'projectId'_'state'_’activity’,
+      'PartitionKey': 'projectId'_'state',
       'RowKey': 'pincode'_’recordID’,
       'State': 'state',
       'Pincode': 'village pincode',

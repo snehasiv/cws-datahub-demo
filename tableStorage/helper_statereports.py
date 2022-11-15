@@ -54,7 +54,7 @@ def update_record(partitionKey, rowKey, data):
 		u'RowKey': rowKey,
 		u'UpdatedBy': data['updatedBy'], 
 		u'Data': json.dumps(data.get('reportData')),
-		u'LastRecord': old_entity.get('Data')
+		u'LastRecord': old_entity.get('data')
 	}
 	new_entity = TABLE_CLIENT.update_entity(mode=UpdateMode.MERGE, entity=entity)
 	return new_entity
