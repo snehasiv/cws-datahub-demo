@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "486036a0-c072-42a5-86cb-129ad45fcefc",
+		"name": "cws",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1368799"
+	},
+	"item": [
+		{
+			"name": "State Reports",
+			"item": [
+				{
+					"name": "submit state report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"JHARKHAND\",\n    \"reportName\": \"monthly project 31 report\",\n    \"projectId\": \"31\",\n    \"createdBy\": \"sneha srivastava\",\n    \"reportWindowStartDate\": \"2022-07-01\",\n    \"reportWindowEndDate\": \"2022-07-31\",\n    \"reportSubmissionDate\": \"2022-10-01\",\n    \"reportData\": [{},{}]\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/reports/state",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"reports",
+								"state"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get state reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/reports/state?state=GUJARAT&projectId=31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"reports",
+								"state"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "GUJARAT"
+								},
+								{
+									"key": "projectId",
+									"value": "31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 1 state report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/reports/state/full?partitionKey=31_GUJARAT&rowKey=monthly project 31 report_2022-10-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"reports",
+								"state",
+								"full"
+							],
+							"query": [
+								{
+									"key": "partitionKey",
+									"value": "31_GUJARAT"
+								},
+								{
+									"key": "rowKey",
+									"value": "monthly project 31 report_2022-10-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update state report",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"partitionKey\": \"31_GUJARAT\",\n    \"rowKey\":\"monthly project 31 report_2022-10-01\",\n    \"updatedBy\": \"Manish Gupta\",\n    \"reportData\": [ {\"progress from last report \": \"positive.\"} ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/reports/state/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"reports",
+								"state",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Local Records",
+			"item": [
+				{
+					"name": "get local reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/reports/localrecords?state=GUJARAT&projectId=33&submittedBefore=2022-01-01&pincode=123456&activityName=xccs&submittedAfter=2022-04-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"reports",
+								"localrecords"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "GUJARAT"
+								},
+								{
+									"key": "projectId",
+									"value": "33"
+								},
+								{
+									"key": "submittedBefore",
+									"value": "2022-01-01"
+								},
+								{
+									"key": "pincode",
+									"value": "123456"
+								},
+								{
+									"key": "activityName",
+									"value": "xccs"
+								},
+								{
+									"key": "submittedAfter",
+									"value": "2022-04-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 1 local record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/reports/state/33_GUJARAT/monthly project 33 report_2022-10-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"reports",
+								"state",
+								"33_GUJARAT",
+								"monthly project 33 report_2022-10-01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "submit local record",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"GUJARAT\",\n    \"reportName\": \"quarterly project 33 report\",\n    \"projectId\": \"33\",\n    \"pincode\": \"201301\",\n    \"recordId\": \"1232345653\",\n    \"activityName\": \"blood test\",\n    \"submittedBy\": \"sneha srivastava\",\n    \"submissionDate\": \"2022-07-01\",\n    \"data\": [{},{}]\n\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/reports/localrecords",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"reports",
+								"localrecords"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
