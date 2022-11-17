@@ -60,13 +60,25 @@ Azure Function app for managing NGO Centre for World Solidarity (CWS) DataHub ap
 6.	Setup local environment for working on API code:
     1.	Install azure client, reference doc [here](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwitq9zzn7D7AhVhIbcAHdZ9BtgQFnoECBQQAQ&url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fcli%2Fazure%2Finstall-azure-cli&usg=AOvVaw2wU-IOK9bJspNOnFD8Hwz_)
     2. Setup Azure Function local tools, reference doc [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cmacos%2Ccsharp%2Cportal%2Cbash#v2)
-    3. Writing a new API: ``func new --template "Http Trigger" --name <api name>``
-    4. Test locally: 
+    3. Test locally: 
         ``` python
-        create environment variable in terminal for storage account name (Name: 'STORAGE_ACCCOUNT_NAME') and account key (Name: 'STORAGE_ACCOUNT_KEY')
-        Then run: "func start"
+        #Initialise project 
+        func init
+
+        #create environment variable in terminal for storage account name (Name: 'STORAGE_ACCOUNT_NAME') and account key (Name: 'STORAGE_ACCOUNT_KEY')
+        ##powershell needed in windows.
+        export STORAGE_ACCOUNT_KEY="" | export STORAGE_ACCOUNT_NAME= ""
+
+        #Install project python dependencies locally
+        pip install -r requirements.txt
+
+        Then run: "func host start"
         ```
-    5. Deploy changes to Azure account: 
+    4.  Writing a new API: ``func new --template "Http Trigger" --name <api name>``
+
+    5. Setup environment variables on Azure Functions on Azure Portal, documentation [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal)
+    
+    6. Deploy changes to Azure account: 
       ```
       git push origin main
       func azure functionapp publish

@@ -4,3 +4,7 @@
 
 azure-data-tables
 azure-functions
+
+jsondiff
+azure.functions
+azure.data.tables

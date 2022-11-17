@@ -27,7 +27,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         try:  
             helper_statereports.submit_record(req_body)
             #add trace event
-            helper_statereportslog.submit_record(req_body, req_body.get('reportData'))
+            helper_statereportlogs.submit_record(req_body, req_body.get('reportData'))
         except:
             traceback.print_exc()
             return func.HttpResponse(
