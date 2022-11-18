@@ -8,12 +8,12 @@ from azure.data.tables import UpdateMode
 TABLE_CLIENT = TABLE_SERVICE_CLIENT.get_table_client(table_name="statereportslog")
 
 
-def submit_report(data, diff):
+def submit_record(data, diff):
 	entity = {
     	u'PartitionKey': f"{data.get('reportName')}_{data.get('reportSubmissionDate')}",
     	u'RowKey': datetime.today().strftime('%Y-%m-%d'),
     	u'ModifiedBy': f"{data.get('createdBy')}",
-    	u'ChangesMade': diff
+    	u'ChangesMade': " ".join(str(change) for change in diff)
 	}
 
 	entity = TABLE_CLIENT.create_entity(entity=entity)

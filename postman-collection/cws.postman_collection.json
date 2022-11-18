@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"state\": \"JHARKHAND\",\n    \"reportName\": \"monthly project 31 report\",\n    \"projectId\": \"31\",\n    \"createdBy\": \"sneha srivastava\",\n    \"reportWindowStartDate\": \"2022-07-01\",\n    \"reportWindowEndDate\": \"2022-07-31\",\n    \"reportSubmissionDate\": \"2022-10-01\",\n    \"reportData\": [{},{}]\n\n}",
+							"raw": "{\n    \"state\": \"BIHAR\",\n    \"reportName\": \"monthly project 4 report\",\n    \"projectId\": \"4\",\n    \"createdBy\": \"sneha srivastava\",\n    \"reportWindowStartDate\": \"2022-07-01\",\n    \"reportWindowEndDate\": \"2022-07-31\",\n    \"reportSubmissionDate\": \"2022-10-01\",\n    \"reportData\": [{},{}]\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -76,7 +76,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7071/api/reports/state/full?partitionKey=31_GUJARAT&rowKey=monthly project 31 report_2022-10-01",
+							"raw": "http://localhost:7071/api/reports/state/full?partitionKey=33_GUJARAT&rowKey=monthly project 33 report_2022-10-01",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -91,11 +91,43 @@
 							"query": [
 								{
 									"key": "partitionKey",
-									"value": "31_GUJARAT"
+									"value": "33_GUJARAT"
 								},
 								{
 									"key": "rowKey",
-									"value": "monthly project 31 report_2022-10-01"
+									"value": "monthly project 33 report_2022-10-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 1 state report changes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/reports/state/changes?reportName=monthly project 4 report&reportSubmissionDate=2022-09-30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"reports",
+								"state",
+								"changes"
+							],
+							"query": [
+								{
+									"key": "reportName",
+									"value": "monthly project 4 report"
+								},
+								{
+									"key": "reportSubmissionDate",
+									"value": "2022-09-30"
 								}
 							]
 						}
@@ -191,7 +223,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7071/api/reports/state/33_GUJARAT/monthly project 33 report_2022-10-01",
+							"raw": "http://localhost:7071/api/reports/localrecords/full?partitionKey=3_TAMIL NADU&rowKey=201301_1232345653",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -200,9 +232,18 @@
 							"path": [
 								"api",
 								"reports",
-								"state",
-								"33_GUJARAT",
-								"monthly project 33 report_2022-10-01"
+								"localrecords",
+								"full"
+							],
+							"query": [
+								{
+									"key": "partitionKey",
+									"value": "3_TAMIL NADU"
+								},
+								{
+									"key": "rowKey",
+									"value": "201301_1232345653"
+								}
 							]
 						}
 					},
@@ -215,7 +256,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"state\": \"GUJARAT\",\n    \"reportName\": \"quarterly project 33 report\",\n    \"projectId\": \"33\",\n    \"pincode\": \"201301\",\n    \"recordId\": \"1232345653\",\n    \"activityName\": \"blood test\",\n    \"submittedBy\": \"sneha srivastava\",\n    \"submissionDate\": \"2022-07-01\",\n    \"data\": [{},{}]\n\n\n}",
+							"raw": "{\n    \"state\": \"TAMIL NADU\",\n    \"projectId\": \"3\",\n    \"pincode\": \"201301\",\n    \"recordId\": \"1232345653\",\n    \"activityName\": \"blood test\",\n    \"submittedBy\": \"sneha srivastava\",\n    \"submissionDate\": \"2022-07-01\",\n    \"data\": [{},{}]\n\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"

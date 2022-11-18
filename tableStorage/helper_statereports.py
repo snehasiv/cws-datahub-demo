@@ -47,7 +47,7 @@ def get_record(partitionKey, rowKey):
 	return got_entity
 
 def update_record(partitionKey, rowKey, data):
-	old_entity = get_report(partitionKey, rowKey)
+	old_entity = get_record(partitionKey, rowKey)
 	
 	entity = {
 		u'PartitionKey': partitionKey,
