@@ -13,7 +13,13 @@
 					"name": "submit state report",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"state\": \"BIHAR\",\n    \"reportName\": \"monthly project 4 report\",\n    \"projectId\": \"4\",\n    \"createdBy\": \"sneha srivastava\",\n    \"reportWindowStartDate\": \"2022-07-01\",\n    \"reportWindowEndDate\": \"2022-07-31\",\n    \"reportSubmissionDate\": \"2022-10-01\",\n    \"reportData\": [{},{}]\n\n}",
@@ -24,12 +30,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7071/api/reports/state",
-							"protocol": "http",
+							"raw": "{{datahub-url}}/api/reports/state",
 							"host": [
-								"localhost"
+								"{{datahub-url}}"
 							],
-							"port": "7071",
 							"path": [
 								"api",
 								"reports",
@@ -43,14 +47,18 @@
 					"name": "get state reports",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:7071/api/reports/state?state=GUJARAT&projectId=31",
-							"protocol": "http",
+							"raw": "{{datahub-url}}/api/reports/state?state=GUJARAT&projectId=31",
 							"host": [
-								"localhost"
+								"{{datahub-url}}"
 							],
-							"port": "7071",
 							"path": [
 								"api",
 								"reports",
@@ -74,14 +82,18 @@
 					"name": "get 1 state report",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:7071/api/reports/state/full?partitionKey=33_GUJARAT&rowKey=monthly project 33 report_2022-10-01",
-							"protocol": "http",
+							"raw": "{{datahub-url}}/api/reports/state/full?partitionKey=4_BIHAR&rowKey=monthly project 4 report_2022-10-01",
 							"host": [
-								"localhost"
+								"{{datahub-url}}"
 							],
-							"port": "7071",
 							"path": [
 								"api",
 								"reports",
@@ -91,11 +103,11 @@
 							"query": [
 								{
 									"key": "partitionKey",
-									"value": "33_GUJARAT"
+									"value": "4_BIHAR"
 								},
 								{
 									"key": "rowKey",
-									"value": "monthly project 33 report_2022-10-01"
+									"value": "monthly project 4 report_2022-10-01"
 								}
 							]
 						}
@@ -106,14 +118,18 @@
 					"name": "get 1 state report changes",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:7071/api/reports/state/changes?reportName=monthly project 4 report&reportSubmissionDate=2022-09-30",
-							"protocol": "http",
+							"raw": "{{datahub-url}}/api/reports/state/changes?reportName=monthly project 4 report&reportSubmissionDate=2022-09-30",
 							"host": [
-								"localhost"
+								"{{datahub-url}}"
 							],
-							"port": "7071",
 							"path": [
 								"api",
 								"reports",
@@ -138,10 +154,16 @@
 					"name": "update state report",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"partitionKey\": \"31_GUJARAT\",\n    \"rowKey\":\"monthly project 31 report_2022-10-01\",\n    \"updatedBy\": \"Manish Gupta\",\n    \"reportData\": [ {\"progress from last report \": \"positive.\"} ]\n}",
+							"raw": "{\n    \"partitionKey\": \"4_BIHAR\",\n    \"rowKey\":\"monthly project 4 report_2022-10-01\",\n    \"updatedBy\": \"Manish Gupta\",\n    \"reportData\": [ {\"progress from last report \": \"positive.\"} ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -149,12 +171,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7071/api/reports/state/",
-							"protocol": "http",
+							"raw": "{{datahub-url}}/api/reports/state/",
 							"host": [
-								"localhost"
+								"{{datahub-url}}"
 							],
-							"port": "7071",
 							"path": [
 								"api",
 								"reports",
@@ -174,14 +194,18 @@
 					"name": "get local reports",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:7071/api/reports/localrecords?state=GUJARAT&projectId=33&submittedBefore=2022-01-01&pincode=123456&activityName=xccs&submittedAfter=2022-04-01",
-							"protocol": "http",
+							"raw": "{{datahub-url}}/api/reports/localrecords?state=GUJARAT&projectId=33&submittedBefore=2022-01-01&pincode=123456&activityName=xccs&submittedAfter=2022-04-01",
 							"host": [
-								"localhost"
+								"{{datahub-url}}"
 							],
-							"port": "7071",
 							"path": [
 								"api",
 								"reports",
@@ -221,14 +245,18 @@
 					"name": "get 1 local record",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:7071/api/reports/localrecords/full?partitionKey=3_TAMIL NADU&rowKey=201301_1232345653",
-							"protocol": "http",
+							"raw": "{{datahub-url}}/api/reports/localrecords/full?partitionKey=3_TAMIL NADU&rowKey=201301_1232345653",
 							"host": [
-								"localhost"
+								"{{datahub-url}}"
 							],
-							"port": "7071",
 							"path": [
 								"api",
 								"reports",
@@ -253,7 +281,13 @@
 					"name": "submit local record",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"state\": \"TAMIL NADU\",\n    \"projectId\": \"3\",\n    \"pincode\": \"201301\",\n    \"recordId\": \"1232345653\",\n    \"activityName\": \"blood test\",\n    \"submittedBy\": \"sneha srivastava\",\n    \"submissionDate\": \"2022-07-01\",\n    \"data\": [{},{}]\n\n\n}",
@@ -264,12 +298,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7071/api/reports/localrecords",
-							"protocol": "http",
+							"raw": "{{datahub-url}}/api/reports/localrecords",
 							"host": [
-								"localhost"
+								"{{datahub-url}}"
 							],
-							"port": "7071",
 							"path": [
 								"api",
 								"reports",
@@ -280,6 +312,38 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "datahub-url",
+			"value": "localhost:7071",
+			"type": "string"
+		},
+		{
+			"key": "x-functions-key",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
