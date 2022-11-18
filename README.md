@@ -120,6 +120,7 @@ To test, deploy locally to prod setup, on IDE switch to main branch, then build 
 9. Securing Azure Function APIs
     1. Enforce HTTPs TLS v1.2 for all APIs, doc [here](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-bindings#enforce-https)
     2. Add master API Key under "Function Keys" option on portal, after which API calls can be made only if key is correct. Further details [here](https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts?tabs=v4) under API Key Management.
+    3. CORS Configuration, set default allowed origins to "*".
 
 
 
